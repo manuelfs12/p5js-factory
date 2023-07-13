@@ -16,7 +16,12 @@
   "bugs": "https://github.com/manuelfs12/p5js-factory/issues",
   "license": "MIT",
   "keywords": [
-    "p5js-factory"
+    "p5js-factory",
+    "cli",
+    "cmd",
+    "console",
+    "Manuel Figueroa",
+    "manuelfs12"
   ],
   "files": [
     "src"
