@@ -1,0 +1,17 @@
+{
+  "name": "p5js-factory",
+  "version": "0.0.1",
+  "description": "A CLI tool to bootstrap a new p5js project. ",
+  "type": "module",
+  "bin": {
+    "p5js-factory": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js "
+  },
+  "author": "Manuel Figueroa",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^9.2.7"
+  }
+}
