@@ -42,7 +42,12 @@ inquirer
           );
         })
         .then(() => {
-          console.log("Directory created successfully!");
+          console.log("Project created successfully!");
+          console.log(`cd ${directoryName}`);
+          console.log(
+            "Optionally you can install p5 type definitions running:"
+          );
+          console.log("npm i --save @types/p5");
         })
         .catch((err) => {
           throw new Error(err);
