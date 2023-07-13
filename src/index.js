@@ -3,9 +3,12 @@
 import inquirer from "inquirer";
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 import axios from "axios";
 
 const repoUrl = "https://api.github.com/repos/processing/p5.js/releases/latest";
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 inquirer
   .prompt({
     type: "input",
@@ -19,11 +22,16 @@ inquirer
         return console.error(err);
       }
       const directoryName = `./${answer["directoryName"]}`;
-      fs.cp("./src/templates", directoryName, { recursive: true }, (err) => {
-        if (err) {
-          console.error(err);
+      fs.cp(
+        path.join(`${__dirname}/templates`),
+        directoryName,
+        { recursive: true },
+        (err) => {
+          if (err) {
+            console.log(err);
+          }
         }
-      });
+      );
       axios
         .get(repoUrl)
         .then(async (res) => {

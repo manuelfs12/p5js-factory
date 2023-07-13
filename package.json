@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "A CLI tool to bootstrap a new p5js project.",
   "type": "module",
-  "main": "src/index.js",
   "bin": {
     "p5js-factory": "src/index.js"
   },
