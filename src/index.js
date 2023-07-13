@@ -6,6 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import axios from "axios";
 import welcome from "cli-welcome";
+import ora from "ora";
 import pkg from "../package.json" assert { type: "json" };
 
 const repoUrl = "https://api.github.com/repos/processing/p5.js/releases/latest";
@@ -28,8 +29,12 @@ inquirer
     default: "MyAwesomeSketch",
   })
   .then((answer) => {
+    const spinner = ora("Creating Folder...").start();
+    spinner.color = "white";
+    spinner.spinner = "bouncingBar";
     fs.mkdir(path.join(process.cwd(), answer["directoryName"]), (err) => {
       if (err) {
+        spinner.fail(err);
         return console.error(err);
       }
       const directoryName = `./${answer["directoryName"]}`;
@@ -39,6 +44,7 @@ inquirer
         { recursive: true },
         (err) => {
           if (err) {
+            spinner.fail(err);
             console.log(err);
           }
         }
@@ -61,14 +67,15 @@ inquirer
           );
         })
         .then(() => {
-          console.log("Project created successfully!");
+          spinner.succeed("Project created successfully!");
           console.log(`cd ${directoryName}`);
           console.log(
-            "Optionally you can install p5 type definitions running:"
+            "Run the following command to install p5js type definitions."
           );
           console.log("npm i --save @types/p5");
         })
         .catch((err) => {
+          spinner.fail(err);
           throw new Error(err);
         });
     });
