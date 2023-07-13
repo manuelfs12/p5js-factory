@@ -5,10 +5,19 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import axios from "axios";
+import welcome from "cli-welcome";
+import pkg from "../package.json" assert { type: "json" };
 
 const repoUrl = "https://api.github.com/repos/processing/p5.js/releases/latest";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
+welcome({
+  title: "P5js Factory",
+  tagLine: "By Manuel Figueroa",
+  description: pkg.description,
+  version: pkg.version,
+  bgColor: "#ef4275",
+  color: "#FFFFFF",
+});
 inquirer
   .prompt({
     type: "input",
