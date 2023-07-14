@@ -9,7 +9,10 @@
   "scripts": {
     "start": "node src/index.js "
   },
-  "author": "Manuel Figueroa @manuelfs12",
+  "author": {
+    "name": "Manuel Figueroa",
+    "email": "manuel@manudevbits.com"
+  },
   "repository": {
     "url": "https://github.com/manuelfs12/p5js-factory"
   },
