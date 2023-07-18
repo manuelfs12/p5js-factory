@@ -1,6 +1,6 @@
 {
   "name": "p5js-factory",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI tool to bootstrap a new p5js project.",
   "type": "module",
   "bin": {
